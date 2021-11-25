@@ -1,8 +1,11 @@
 import React from "react";
 
 const Education = () => {
-  console.log("Education works");
-  return <h2>Education section</h2>;
+  return (
+    <div className="Education">
+      <h2>Education section</h2>
+    </div>
+  );
 };
 
 export default Education;

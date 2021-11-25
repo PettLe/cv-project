@@ -3,16 +3,17 @@ import React, { Component } from "react";
 class Personal extends Component {
   constructor(props) {
     super(props);
-    console.log(props);
+    console.log(props.personalInfo);
   }
 
   render() {
-    const { personal, handleChange } = this.props;
+    const { personal, personalInfo, handleChange, onSubmitPersonal } =
+      this.props;
 
     return (
       <div className="Personal">
         <h2>Personal section</h2>
-        <form>
+        <form onSubmit={onSubmitPersonal}>
           <label htmlFor="nameInput">Name: </label>
           <br />
           <input
@@ -51,3 +52,17 @@ class Personal extends Component {
 }
 
 export default Personal;
+/* TOIMII JOS ON VALMIIKSI SISÄLTÖÄ
+        <ul>
+          <li>{personalInfo[0].personal.personal.nameInput}</li>
+          <li>{personalInfo[0].personal.emailInput}</li>
+          <li>{personalInfo[0].phoneInput}</li>
+        </ul> */
+
+/*
+        <ul>
+          {personalInfo.map((item) => {
+            return <li key={item.id}>{item.nameInput}</li>;
+          })}
+        </ul>
+         */

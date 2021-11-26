@@ -19,6 +19,12 @@ class App extends Component {
         phoneInput: "",
         id: uniqid(),
       },
+      schoolInfo: [],
+      school: {
+        schoolInput: "",
+        degreeInput: "",
+        id: uniqid(),
+      },
     };
   }
 
@@ -39,6 +45,21 @@ class App extends Component {
     console.log(this.state.personal);
   };
 
+  handleChangeEducation = (e) => {
+    e.persist();
+
+    let value = e.target.value;
+
+    this.setState((prevState) => ({
+      school: {
+        ...prevState.school,
+        [e.target.name]: value,
+        id: this.state.school.id,
+      },
+    }));
+    console.log("Nada");
+  };
+
   //SUBMIT HANDLERS
   //SubmitHandler for Personal
   onSubmitPersonal = (e) => {
@@ -54,6 +75,18 @@ class App extends Component {
     });
   };
 
+  onSubmitEducation = (e) => {
+    e.preventDefault();
+    this.setState({
+      schoolInfo: this.state.schoolInfo.concat(this.state.school),
+      school: {
+        schoolInput: "",
+        degreeInput: "",
+        id: uniqid(),
+      },
+    });
+  };
+
   test = () => {
     //  this.state.personalInfo.map((item) => {
     //    return console.log(item);
@@ -62,7 +95,7 @@ class App extends Component {
   };
 
   render() {
-    const { personal, personalInfo } = this.state;
+    const { personal, personalInfo, schoolInfo, school } = this.state;
     return (
       <div className="App">
         <div className="formComponents">
@@ -76,14 +109,19 @@ class App extends Component {
                   handleChange={this.handleChange}
                   onSubmitPersonal={this.onSubmitPersonal}
                 />
-                <Education />
+                <Education
+                  school={school}
+                  schoolInfo={schoolInfo}
+                  handleChangeEducation={this.handleChangeEducation}
+                  onSubmitEducation={this.onSubmitEducation}
+                />
               </div>
               <WorkHistory />
               <button onClick={this.test}>Print</button>
             </div>
 
             <div className="infoOutput">
-              <InfoOutput personalInfo={personalInfo} />
+              <InfoOutput personalInfo={personalInfo} schoolInfo={schoolInfo} />
             </div>
           </div>
         </div>

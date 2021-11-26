@@ -7,8 +7,7 @@ class Personal extends Component {
   }
 
   render() {
-    const { personal, personalInfo, handleChange, onSubmitPersonal } =
-      this.props;
+    const { personal, handleChange, onSubmitPersonal } = this.props;
 
     return (
       <div className="Personal">
@@ -20,7 +19,7 @@ class Personal extends Component {
             onChange={handleChange}
             type="text"
             name="nameInput"
-            value={personal.fullName}
+            value={personal.nameInput}
             aria-required
           />
           <br />
@@ -30,7 +29,7 @@ class Personal extends Component {
             onChange={handleChange}
             type="email"
             name="emailInput"
-            value={personal.email}
+            value={personal.emailInput}
             aria-required
           />
           <br />
@@ -40,7 +39,7 @@ class Personal extends Component {
             onChange={handleChange}
             type="tel"
             name="phoneInput"
-            value={personal.phone}
+            value={personal.phoneInput}
             aria-required
           />
           <br />

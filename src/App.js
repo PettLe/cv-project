@@ -20,6 +20,15 @@ class App extends Component {
         phoneInput: "",
         id: uniqid(),
       },
+      workInfo: [],
+      work: {
+        companyInput: "",
+        positionInput: "",
+        taskInput: "",
+        jobStartInput: new Date(),
+        jobEndInput: new Date(),
+        id: uniqid(),
+      },
       schoolInfo: [],
       school: {
         schoolInput: "",
@@ -57,8 +66,21 @@ class App extends Component {
       school: {
         ...prevState.school,
         [e.target.name]: value,
-        //  endInput: DatePicker(),
         id: this.state.school.id,
+      },
+    }));
+  };
+
+  handleChangeWork = (e) => {
+    e.persist();
+
+    let value = e.target.value;
+
+    this.setState((prevState) => ({
+      work: {
+        ...prevState.work,
+        [e.target.name]: value,
+        id: this.state.work.id,
       },
     }));
   };
@@ -92,17 +114,33 @@ class App extends Component {
     });
   };
 
+  onSubmitWork = (e) => {
+    e.preventDefault();
+    this.setState({
+      workInfo: this.state.workInfo.concat(this.state.work),
+      work: {
+        companyInput: "",
+        positionInput: "",
+        taskInput: "",
+        jobStartInput: new Date(),
+        jobEndInput: new Date(),
+        id: uniqid(),
+      },
+    });
+  };
+
   //FUNCTIONS
 
   test = () => {
     //  this.state.personalInfo.map((item) => {
     //    return console.log(item);
     //  });
-    console.log(this.state.personalInfo);
+    console.log(this.state.workInfo);
   };
 
   render() {
-    const { personal, personalInfo, schoolInfo, school } = this.state;
+    const { workInfo, personal, personalInfo, schoolInfo, school, work } =
+      this.state;
     return (
       <div className="App">
         <div className="formComponents">
@@ -123,12 +161,21 @@ class App extends Component {
                   onSubmitEducation={this.onSubmitEducation}
                 />
               </div>
-              <WorkHistory />
+              <WorkHistory
+                work={work}
+                workInfo={workInfo}
+                handleChangeWork={this.handleChangeWork}
+                onSubmitWork={this.onSubmitWork}
+              />
               <button onClick={this.test}>Print</button>
             </div>
 
             <div className="infoOutput">
-              <InfoOutput personalInfo={personalInfo} schoolInfo={schoolInfo} />
+              <InfoOutput
+                personalInfo={personalInfo}
+                schoolInfo={schoolInfo}
+                workInfo={workInfo}
+              />
             </div>
           </div>
         </div>

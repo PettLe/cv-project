@@ -17,12 +17,18 @@ ul {
 }
 .PerEd {
   display: flex;
-  gap: 3vh;
+  justify-content: space-between;
+  /*gap: 3vh;*/
+}
+.flexAll {
+  display: flex;
+  gap: 10vw;
 }
 
 .Personal,
 .Education,
-.WorkHistory {
+.WorkHistory,
+.infoOutput {
   color: #282c34;
   background-color: rgb(248, 245, 240);
   padding: 3vh;
@@ -30,6 +36,31 @@ ul {
   border: 2px solid black;
   line-height: 3vh;
 }
+
+.Personal,
+.Education {
+  min-width: 50%;
+}
+
+.formFlex {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.formFlex button {
+  padding: 2vh;
+  width: 75px;
+}
 .WorkHistory {
-  width: 55%;
+  min-width: 80%;
+}
+
+.infoOutput {
+  min-width: 65%;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
 }

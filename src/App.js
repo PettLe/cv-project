@@ -5,6 +5,7 @@ import uniqid from "uniqid";
 import Personal from "./components/Personal";
 import Education from "./components/Education";
 import WorkHistory from "./components/WorkHistory";
+import InfoOutput from "./components/InfoOutput";
 
 class App extends Component {
   constructor() {
@@ -30,9 +31,6 @@ class App extends Component {
 
     this.setState((prevState) => ({
       personal: {
-        //       nameInput: value,
-        //       emailInput: value,
-        //       phoneInput: value,
         ...prevState.personal,
         [e.target.name]: value,
         id: this.state.personal.id,
@@ -61,27 +59,34 @@ class App extends Component {
     //    return console.log(item);
     //  });
     console.log(this.state.personalInfo);
-    // console.log(this.state.personalInfo[0].phoneInput);
-    // console.log(this.state.personalInfo[0].personal.personal.nameInput);
-    // console.log(this.state.personalInfo[0].personal.emailInput);
   };
 
   render() {
     const { personal, personalInfo } = this.state;
     return (
       <div className="App">
-        <h1>CV Project</h1>
-        <div className="PerEd">
-          <Personal
-            personal={personal}
-            personalInfo={personalInfo}
-            handleChange={this.handleChange}
-            onSubmitPersonal={this.onSubmitPersonal}
-          />
-          <Education />
+        <div className="formComponents">
+          <h1>CV Project</h1>
+          <div className="flexAll">
+            <div className="formFlex">
+              <div className="PerEd">
+                <Personal
+                  personal={personal}
+                  personalInfo={personalInfo}
+                  handleChange={this.handleChange}
+                  onSubmitPersonal={this.onSubmitPersonal}
+                />
+                <Education />
+              </div>
+              <WorkHistory />
+              <button onClick={this.test}>Print</button>
+            </div>
+
+            <div className="infoOutput">
+              <InfoOutput personalInfo={personalInfo} />
+            </div>
+          </div>
         </div>
-        <WorkHistory />
-        <button onClick={this.test}>Test</button>
       </div>
     );
   }

@@ -33,6 +33,26 @@ class Education extends Component {
             aria-required
           />
           <br />
+          <label htmlFor="startInput">Start: </label>
+          <br />
+          <input
+            type="date"
+            onChange={handleChangeEducation}
+            name="startInput"
+            value={school.startInput}
+            aria-required
+          />
+          <br />
+          <label htmlFor="endInput">End: </label>
+          <br />
+          <input
+            type="date"
+            onChange={handleChangeEducation}
+            name="endInput"
+            value={school.endInput}
+            aria-required
+          />
+          <br />
           <button type="submit">Submit</button>
         </form>
       </div>

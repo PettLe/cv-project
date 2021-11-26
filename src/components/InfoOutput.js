@@ -24,6 +24,9 @@ const InfoOutput = (props) => {
             <ul key={item.id}>
               <li>School: {item.schoolInput}</li>
               <li>Degree: {item.degreeInput}</li>
+              <li>Start: {item.startInput}</li>
+              <li>End: {item.endInput}</li>
+              <br />
             </ul>
           );
         })}

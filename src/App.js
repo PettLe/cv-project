@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
 import uniqid from "uniqid";
+
 //Import Components
 import Personal from "./components/Personal";
 import Education from "./components/Education";
@@ -23,6 +24,8 @@ class App extends Component {
       school: {
         schoolInput: "",
         degreeInput: "",
+        startInput: new Date(),
+        endInput: new Date(),
         id: uniqid(),
       },
     };
@@ -54,10 +57,10 @@ class App extends Component {
       school: {
         ...prevState.school,
         [e.target.name]: value,
+        //  endInput: DatePicker(),
         id: this.state.school.id,
       },
     }));
-    console.log("Nada");
   };
 
   //SUBMIT HANDLERS
@@ -82,10 +85,14 @@ class App extends Component {
       school: {
         schoolInput: "",
         degreeInput: "",
+        startInput: new Date(),
+        endInput: new Date(),
         id: uniqid(),
       },
     });
   };
+
+  //FUNCTIONS
 
   test = () => {
     //  this.state.personalInfo.map((item) => {

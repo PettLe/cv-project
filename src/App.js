@@ -147,27 +147,25 @@ class App extends Component {
           <h1>CV Project</h1>
           <div className="flexAll">
             <div className="formFlex">
-              <div className="PerEd">
-                <Personal
-                  personal={personal}
-                  personalInfo={personalInfo}
-                  handleChange={this.handleChange}
-                  onSubmitPersonal={this.onSubmitPersonal}
-                />
-                <Education
-                  school={school}
-                  schoolInfo={schoolInfo}
-                  handleChangeEducation={this.handleChangeEducation}
-                  onSubmitEducation={this.onSubmitEducation}
-                />
-              </div>
+              <Personal
+                personal={personal}
+                personalInfo={personalInfo}
+                handleChange={this.handleChange}
+                onSubmitPersonal={this.onSubmitPersonal}
+              />
+              <Education
+                school={school}
+                schoolInfo={schoolInfo}
+                handleChangeEducation={this.handleChangeEducation}
+                onSubmitEducation={this.onSubmitEducation}
+              />
+
               <WorkHistory
                 work={work}
                 workInfo={workInfo}
                 handleChangeWork={this.handleChangeWork}
                 onSubmitWork={this.onSubmitWork}
               />
-              <button onClick={this.test}>Print</button>
             </div>
 
             <div className="infoOutput">
@@ -185,3 +183,7 @@ class App extends Component {
 }
 
 export default App;
+
+/*TESTI NAPPI
+              <button onClick={this.test}>Print</button>
+ */

@@ -11,7 +11,7 @@ class Education extends Component {
 
     return (
       <div className="Education">
-        <h2>Education section</h2>
+        <h2>Education information</h2>
         <form onSubmit={onSubmitEducation}>
           <label htmlFor="schoolInput">School: </label>
           <br />

@@ -11,7 +11,7 @@ class Personal extends Component {
 
     return (
       <div className="Personal">
-        <h2>Personal section</h2>
+        <h2>Personal information</h2>
         <form onSubmit={onSubmitPersonal}>
           <label htmlFor="nameInput">Name: </label>
           <br />
@@ -40,6 +40,16 @@ class Personal extends Component {
             type="tel"
             name="phoneInput"
             value={personal.phoneInput}
+            aria-required
+          />
+          <br />
+          <label htmlFor="ageInput">Date of Birth: </label>
+          <br />
+          <input
+            type="date"
+            onChange={handleChange}
+            name="ageInput"
+            value={personal.ageInput}
             aria-required
           />
           <br />

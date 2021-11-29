@@ -11,7 +11,7 @@ class WorkHistory extends Component {
 
     return (
       <div className="WorkHistory">
-        <h2>Work Experience Section</h2>
+        <h2>Work Experience</h2>
         <form onSubmit={onSubmitWork}>
           <label htmlFor="companyInput">Company: </label>
           <br />

@@ -18,6 +18,7 @@ class App extends Component {
         nameInput: "",
         emailInput: "",
         phoneInput: "",
+        ageInput: new Date(),
         id: uniqid(),
       },
       workInfo: [],
@@ -95,6 +96,7 @@ class App extends Component {
         nameInput: "",
         emailInput: "",
         phoneInput: "",
+        ageInput: new Date(),
         id: uniqid(),
       },
     });
@@ -145,6 +147,7 @@ class App extends Component {
       <div className="App">
         <div className="formComponents">
           <h1>CV Project</h1>
+          <h4>&copy; Petteri Leino 2021</h4>
           <div className="flexAll">
             <div className="formFlex">
               <Personal

@@ -20,6 +20,7 @@ class InfoOutput extends Component {
                 <li>Name: {item.nameInput}</li>
                 <li>E-mail: {item.emailInput}</li>
                 <li>Phone: {item.phoneInput}</li>
+                <li>Date of Birth: {item.ageInput}</li>
               </ul>
             );
           })}

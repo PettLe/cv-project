@@ -26,6 +26,7 @@ ul {
 }
 .flexAll {
   display: flex;
+  min-height: 100%;
   gap: 5vw;
 }
 
@@ -48,9 +49,10 @@ ul {
 .infoOutput {
   color: #282c34;
   background-color: rgb(248, 245, 240);
+  min-height: 100%;
   padding: 3vh;
-  border-radius: 25px;
-  border: 2px solid black;
+  /*  border-radius: 25px;
+  border: 2px solid black;*/
   line-height: 3vh;
 }
 
@@ -72,8 +74,8 @@ ul {
 .formFlex button {
   padding: 2vh;
   width: 75px;
-  position: absolute;
-  top: 65vh;
+  /*  position: absolute;
+  top: 65vh;*/
 }
 .WorkHistory {
   /* min-width: 80%;*/
@@ -85,3 +87,16 @@ ul {
   flex-direction: column;
   text-align: left;
 }
+
+.notEdited {
+  border-top-style: hidden;
+  border-right-style: hidden;
+  border-left-style: hidden;
+  border-bottom-style: hidden;
+  background-color: inherit;
+}
+
+.notEdited:focus {
+  /*outline: none;*/
+}
+/*KORJAA SUBMIT NAPIT! MENEE NYT TEKSTIEN PÄÄLLE VÄLILLÄ*/

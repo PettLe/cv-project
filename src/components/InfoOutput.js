@@ -1,4 +1,6 @@
-import React, { Component } from "react";
+import React, { Component, setState } from "react";
+import { EditText, EditTextarea } from "react-edit-text";
+import "react-edit-text/dist/index.css";
 
 class InfoOutput extends Component {
   constructor(props) {
@@ -8,16 +10,24 @@ class InfoOutput extends Component {
 
   render() {
     //if (!this.props.addressParts) return null;
-    const { personalInfo, schoolInfo, workInfo } = this.props;
+    const {
+      personalInfo,
+      schoolInfo,
+      workInfo,
+      handleChange,
+      onSubmitPersonal,
+    } = this.props;
 
     return (
       <div className="infoData">
-        <h2>Here comes your... DATA!</h2>
+        <h2>Personal information</h2>
         <div className="perData">
           {personalInfo.map((item) => {
             return (
               <ul key={item.id}>
-                <li>Name: {item.nameInput}</li>
+                <li>
+                  Name: <input className="notEdited" value={item.nameInput} />
+                </li>
                 <li>E-mail: {item.emailInput}</li>
                 <li>Phone: {item.phoneInput}</li>
                 <li>Date of Birth: {item.ageInput}</li>
@@ -26,7 +36,7 @@ class InfoOutput extends Component {
           })}
         </div>
         <div className="eduData">
-          <h2>Here comes the school stuff</h2>
+          <h2>Education</h2>
           {schoolInfo.map((item) => {
             return (
               <ul key={item.id}>
@@ -40,7 +50,7 @@ class InfoOutput extends Component {
           })}
         </div>
         <div className="workData">
-          <h2>Oh you've already worked huh?</h2>
+          <h2>Past Work Experience</h2>
           {workInfo.map((item) => {
             return (
               <ul key={item.id}>

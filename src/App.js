@@ -55,7 +55,6 @@ class App extends Component {
         id: this.state.personal.id,
       },
     }));
-    console.log(this.state.personal);
   };
 
   handleChangeEducation = (e) => {
@@ -131,15 +130,6 @@ class App extends Component {
     });
   };
 
-  //FUNCTIONS
-
-  test = () => {
-    //  this.state.personalInfo.map((item) => {
-    //    return console.log(item);
-    //  });
-    console.log(this.state.workInfo);
-  };
-
   render() {
     const { workInfo, personal, personalInfo, schoolInfo, school, work } =
       this.state;
@@ -176,6 +166,8 @@ class App extends Component {
                 personalInfo={personalInfo}
                 schoolInfo={schoolInfo}
                 workInfo={workInfo}
+                handleChange={this.handleChange}
+                onSubmitPersonal={this.onSubmitPersonal}
               />
             </div>
           </div>
@@ -186,7 +178,3 @@ class App extends Component {
 }
 
 export default App;
-
-/*TESTI NAPPI
-              <button onClick={this.test}>Print</button>
- */

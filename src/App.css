@@ -38,7 +38,7 @@ ul {
   flex-direction: column;
   justify-content: flex-start;
   color: white;
-  min-height: 65vh;
+  min-height: 80;
   min-width: 25vw;
   background-color: #282c34;
   padding: 3vh;
@@ -57,24 +57,21 @@ ul {
   line-height: 3vh;
 }
 
-.Personal,
-.Education {
-  /*  min-width: 50%;*/
-}
-
 .formFlex {
   width: 50%;
   display: flex;
-  margin-right: 0;
-
   /*flex-direction: column;*/
+  margin-right: 0;
+  /* background-color: rgb(248, 245, 240);*/
+  min-height: 100%;
+
   align-items: center;
-  /*flex-wrap: wrap;*/
 }
 
 .formFlex button {
   padding: 2vh;
-  width: 75px;
+  font-size: small;
+  width: 100px;
   /*  position: absolute;
   top: 65vh;*/
 }
@@ -114,6 +111,7 @@ ul {
   color: #282c34;
   background-color: rgb(248, 245, 240);
   min-width: 25vw;
+  /*min-height: 80vh;*/
   padding: 3vh;
 }
 

@@ -5,7 +5,9 @@ import "react-edit-text/dist/index.css";
 const Personal = (props) => {
   const [isActive, setIsActive] = useState(false);
   const [text, setText] = useState("");
-  const [isClicked, setIsClicked] = useState(false);
+  const [text2, setText2] = useState("");
+  const [text3, setText3] = useState("");
+  const [text4, setText4] = useState("");
 
   const { personal, personalInfo, handleChange, onSubmitPersonal } = props;
 
@@ -73,12 +75,37 @@ const Personal = (props) => {
                   value={text}
                 />
               </li>
-              <li>E-mail: {item.emailInput}</li>
-              <li>Phone: {item.phoneInput}</li>
-              <li>Date of Birth: {item.ageInput}</li>
+              <li>
+                E-mail:{" "}
+                <EditText
+                  onChange={setText2}
+                  style={{ color: "#000000" }}
+                  placeholder={item.emailInput}
+                  value={text2}
+                />
+              </li>
+              <li>
+                Phone:{" "}
+                <EditText
+                  onChange={setText3}
+                  style={{ color: "#000000" }}
+                  placeholder={item.phoneInput}
+                  value={text3}
+                />
+              </li>
+              <li>
+                Date of Birth:{" "}
+                <EditText
+                  onChange={setText4}
+                  style={{ color: "#000000" }}
+                  placeholder={item.ageInput}
+                  value={text4}
+                />
+              </li>
             </ul>
           );
         })}
+        <hr />
       </div>
     </div>
   );

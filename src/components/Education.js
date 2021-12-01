@@ -4,15 +4,26 @@ class Education extends Component {
   constructor(props) {
     super(props);
     console.log(props.schoolInfo);
+    this.state = {
+      isActive: false,
+    };
   }
-
+  toggleDisplay = (e) => {
+    this.setState(() => ({
+      isActive: !this.state.isActive,
+    }));
+  };
   render() {
-    const { onSubmitEducation, handleChangeEducation, school } = this.props;
+    const { onSubmitEducation, handleChangeEducation, school, schoolInfo } =
+      this.props;
 
     return (
       <div className="Education">
         <h2>Education information</h2>
-        <form onSubmit={onSubmitEducation}>
+        <form
+          className={this.state.isActive ? "hidden" : "educationForm"}
+          onSubmit={onSubmitEducation}
+        >
           <label htmlFor="schoolInput">School: </label>
           <br />
           <input
@@ -53,8 +64,24 @@ class Education extends Component {
             aria-required
           />
           <br />
-          <button type="submit">Submit</button>
+          <button onClick={this.toggleDisplay} type="submit">
+            Submit
+          </button>
         </form>
+        <div className={this.state.isActive ? "eduData" : "hidden"}>
+          {schoolInfo.map((item) => {
+            return (
+              <ul key={item.id}>
+                <li>School: {item.schoolInput}</li>
+                <li>Degree: {item.degreeInput}</li>
+                <li>Start: {item.startInput}</li>
+                <li>End: {item.endInput}</li>
+                <br />
+              </ul>
+            );
+          })}
+          <button onClick={this.toggleDisplay}>Add new</button>
+        </div>
       </div>
     );
   }

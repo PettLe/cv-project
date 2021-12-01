@@ -39,6 +39,7 @@ ul {
   justify-content: flex-start;
   color: white;
   min-height: 65vh;
+  min-width: 25vw;
   background-color: #282c34;
   padding: 3vh;
   /*border-radius: 25px;*/
@@ -100,3 +101,26 @@ ul {
   /*outline: none;*/
 }
 /*KORJAA SUBMIT NAPIT! MENEE NYT TEKSTIEN PÄÄLLE VÄLILLÄ*/
+
+.hidden {
+  display: none;
+}
+
+.perData,
+.eduData,
+.workData {
+  display: block;
+  line-height: 3vh;
+  color: #282c34;
+  background-color: rgb(248, 245, 240);
+  min-width: 25vw;
+  padding: 3vh;
+}
+
+EditText::placeholder {
+  color: black;
+}
+
+li {
+  margin: 2vh 0vh 2vh 0vh;
+}

@@ -6,7 +6,7 @@ import uniqid from "uniqid";
 import Personal from "./components/Personal";
 import Education from "./components/Education";
 import WorkHistory from "./components/WorkHistory";
-import InfoOutput from "./components/InfoOutput";
+//import InfoOutput from "./components/InfoOutput";
 
 class App extends Component {
   constructor() {
@@ -91,13 +91,6 @@ class App extends Component {
     e.preventDefault();
     this.setState({
       personalInfo: this.state.personalInfo.concat(this.state.personal),
-      personal: {
-        nameInput: "",
-        emailInput: "",
-        phoneInput: "",
-        ageInput: new Date(),
-        id: uniqid(),
-      },
     });
   };
 
@@ -160,6 +153,16 @@ class App extends Component {
                 onSubmitWork={this.onSubmitWork}
               />
             </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+}
+
+export default App;
+
+/*INFO OUTPUT VITTUUN
 
             <div className="infoOutput">
               <InfoOutput
@@ -170,11 +173,4 @@ class App extends Component {
                 onSubmitPersonal={this.onSubmitPersonal}
               />
             </div>
-          </div>
-        </div>
-      </div>
-    );
-  }
-}
-
-export default App;
+            */

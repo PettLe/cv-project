@@ -1,16 +1,22 @@
-import React, { Component, useState } from "react";
-import { EditText, EditTextarea } from "react-edit-text";
+import React, { useState } from "react";
+import { EditText } from "react-edit-text";
 import "react-edit-text/dist/index.css";
 
 const Personal = (props) => {
   const [isActive, setIsActive] = useState(false);
-  const [text, setText] = useState("");
-  const [text2, setText2] = useState("");
-  const [text3, setText3] = useState("");
-  const [text4, setText4] = useState("");
+  const [[info], setInfo] = useState([
+    {
+      nameInfo: "",
+      emailInfo: "",
+      phoneInfo: "",
+      ageInfo: "",
+      id: "",
+    },
+  ]);
 
   const { personal, personalInfo, handleChange, onSubmitPersonal } = props;
 
+  console.log(info.nameInfo);
   return (
     <div className="Personal">
       <h2>Personal information</h2>
@@ -69,37 +75,42 @@ const Personal = (props) => {
               <li>
                 Name:{" "}
                 <EditText
-                  onChange={setText}
+                  id="infoName"
+                  onChange={setInfo}
                   style={{ color: "#000000" }}
                   placeholder={item.nameInput}
-                  value={text}
+                  value={info.nameInfo}
                 />
               </li>
               <li>
                 E-mail:{" "}
                 <EditText
-                  onChange={setText2}
+                  id="infoEmail"
+                  onChange={setInfo}
                   style={{ color: "#000000" }}
                   placeholder={item.emailInput}
-                  value={text2}
+                  value={info.emailInfo}
                 />
               </li>
               <li>
                 Phone:{" "}
                 <EditText
-                  onChange={setText3}
+                  id="infoPhone"
+                  onChange={setInfo}
                   style={{ color: "#000000" }}
                   placeholder={item.phoneInput}
-                  value={text3}
+                  value={info.phoneInfo}
                 />
               </li>
               <li>
                 Date of Birth:{" "}
                 <EditText
-                  onChange={setText4}
+                  type="date"
+                  id="infoAge"
+                  onChange={setInfo}
                   style={{ color: "#000000" }}
                   placeholder={item.ageInput}
-                  value={text4}
+                  value={info.ageInfo}
                 />
               </li>
             </ul>
@@ -112,19 +123,3 @@ const Personal = (props) => {
 };
 
 export default Personal;
-
-/* <button onClick={this.toggleDisplay}>Edit</button> */
-/* TOIMII JOS ON VALMIIKSI SISÄLTÖÄ
-        <ul>
-          <li>{personalInfo[0].personal.personal.nameInput}</li>
-          <li>{personalInfo[0].personal.emailInput}</li>
-          <li>{personalInfo[0].phoneInput}</li>
-        </ul> */
-
-/*
-        <ul>
-          {personalInfo.map((item) => {
-            return <li key={item.id}>{item.nameInput}</li>;
-          })}
-        </ul>
-         */

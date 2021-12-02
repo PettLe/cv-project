@@ -1,13 +1,19 @@
-import React, { Component, useState } from "react";
-import { EditText, EditTextarea } from "react-edit-text";
+import React, { useState } from "react";
+import { EditText } from "react-edit-text";
 import "react-edit-text/dist/index.css";
+import uniqid from "uniqid";
 
 const Education = (props) => {
   const [isActive, setIsActive] = useState(false);
-  const [text, setText] = useState("");
-  const [text2, setText2] = useState("");
-  const [text3, setText3] = useState("");
-  const [text4, setText4] = useState("");
+  const [[info], setInfo] = useState([
+    {
+      schoolInfo: "",
+      degreeInfo: "",
+      startInfo: "",
+      endInfo: "",
+      id: uniqid(),
+    },
+  ]);
 
   const { onSubmitEducation, handleChangeEducation, school, schoolInfo } =
     props;
@@ -70,37 +76,39 @@ const Education = (props) => {
               <li>
                 School:{" "}
                 <EditText
-                  onChange={setText}
+                  onChange={setInfo}
                   style={{ color: "#000000" }}
                   placeholder={item.schoolInput}
-                  value={text}
+                  value={info.schoolInfo}
                 />
               </li>
               <li>
                 Degree:{" "}
                 <EditText
-                  onChange={setText2}
+                  onChange={setInfo}
                   style={{ color: "#000000" }}
                   placeholder={item.degreeInput}
-                  value={text2}
+                  value={info.degreeInfo}
                 />
               </li>
               <li>
                 Start:{" "}
                 <EditText
-                  onChange={setText3}
+                  type="date"
+                  onChange={setInfo}
                   style={{ color: "#000000" }}
                   placeholder={item.startInput}
-                  value={text3}
+                  value={info.startInfo}
                 />
               </li>
               <li>
                 End:{" "}
                 <EditText
-                  onChange={setText4}
+                  type="date"
+                  onChange={setInfo}
                   style={{ color: "#000000" }}
                   placeholder={item.endInput}
-                  value={text4}
+                  value={info.startInfo}
                 />
               </li>
               <br />

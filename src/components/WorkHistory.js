@@ -1,14 +1,20 @@
-import React, { Component, useState } from "react";
-import { EditText, EditTextarea } from "react-edit-text";
+import React, { useState } from "react";
+import { EditText } from "react-edit-text";
 import "react-edit-text/dist/index.css";
+import uniqid from "uniqid";
 
 const WorkHistory = (props) => {
   const [isActive, setIsActive] = useState(false);
-  const [text, setText] = useState("");
-  const [text2, setText2] = useState("");
-  const [text3, setText3] = useState("");
-  const [text4, setText4] = useState("");
-  const [text5, setText5] = useState("");
+  const [[info], setInfo] = useState([
+    {
+      jobInfo: "",
+      titleInfo: "",
+      taskInfo: "",
+      jobStartInfo: "",
+      jobEndInfo: "",
+      id: uniqid(),
+    },
+  ]);
   const { onSubmitWork, handleChangeWork, work, workInfo } = props;
 
   return (
@@ -79,46 +85,48 @@ const WorkHistory = (props) => {
               <li>
                 Company:{" "}
                 <EditText
-                  onChange={setText}
+                  onChange={setInfo}
                   style={{ color: "#000000" }}
                   placeholder={item.companyInput}
-                  value={text}
+                  value={info.jobInfo}
                 />
               </li>
               <li>
                 Position:{" "}
                 <EditText
-                  onChange={setText2}
+                  onChange={setInfo}
                   style={{ color: "#000000" }}
                   placeholder={item.positionInput}
-                  value={text2}
+                  value={info.titleInfo}
                 />
               </li>
               <li>
                 Tasks:{" "}
                 <EditText
-                  onChange={setText3}
+                  onChange={setInfo}
                   style={{ color: "#000000" }}
                   placeholder={item.taskInput}
-                  value={text3}
+                  value={info.taskInfo}
                 />
               </li>
               <li>
                 Start:{" "}
                 <EditText
-                  onChange={setText4}
+                  type="date"
+                  onChange={setInfo}
                   style={{ color: "#000000" }}
                   placeholder={item.jobStartInput}
-                  value={text4}
+                  value={info.jobStartInfo}
                 />
               </li>
               <li>
                 End:{" "}
                 <EditText
-                  onChange={setText5}
+                  type="date"
+                  onChange={setInfo}
                   style={{ color: "#000000" }}
                   placeholder={item.jobEndInput}
-                  value={text5}
+                  value={info.jobEndInfo}
                 />
               </li>
               <br />

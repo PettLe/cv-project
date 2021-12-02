@@ -6,7 +6,6 @@ import uniqid from "uniqid";
 import Personal from "./components/Personal";
 import Education from "./components/Education";
 import WorkHistory from "./components/WorkHistory";
-//import InfoOutput from "./components/InfoOutput";
 
 class App extends Component {
   constructor() {
@@ -42,7 +41,6 @@ class App extends Component {
   }
 
   //CHANGE HANDLERS
-  //ChangeHandler for Personal
   handleChange = (e) => {
     e.persist();
 
@@ -86,7 +84,6 @@ class App extends Component {
   };
 
   //SUBMIT HANDLERS
-  //SubmitHandler for Personal
   onSubmitPersonal = (e) => {
     e.preventDefault();
     this.setState({
@@ -161,16 +158,3 @@ class App extends Component {
 }
 
 export default App;
-
-/*INFO OUTPUT VITTUUN
-
-            <div className="infoOutput">
-              <InfoOutput
-                personalInfo={personalInfo}
-                schoolInfo={schoolInfo}
-                workInfo={workInfo}
-                handleChange={this.handleChange}
-                onSubmitPersonal={this.onSubmitPersonal}
-              />
-            </div>
-            */
